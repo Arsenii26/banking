@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="common/header :: common-header"/>
+<body roleId="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<head th:replace="common/header :: navbar"/>
+<div class="container main">
+    <div class="row">
+        <table id="users">
+            <tr>
+            <th>Username</th>
+            <th>First Name</th>
+            <th>LastName</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Enabled</th>
+            <th>Action</th>
+            <th>Daily Limit</th>
+            </tr>
+<!--        <th:block th:each="user : ${usersList}">-->
+        <tr th:each="user : ${usersList}">
+            <td th:text="${user.username}" ></td>
+            <td th:text="${user.firstName}" ></td>
+            <td th:text="${user.lastName}" ></td>
+            <td th:text="${user.email}" ></td>
+            <td th:text="${user.phone}" ></td>
+            <td th:text="${user.enabled}" ></td>
+<!--            <td><a th:href="@{'/api/user/' + ${user.username} + '/enable'}" class="btn btn-success" >Enable</a>-->
+<!--            "@{/(id=${userId})}"-->
+            <td><a th:href="@{/user/enable(username=${user.username})}" class="btn btn-success" >Enable</a>
+<!--                <a th:href="@{'/api/user/' + ${user.username} + '/disable'}"  class="btn btn-danger">Disable</a>-->
+                <a th:href="@{/user/disable(username=${user.username})}"  class="btn btn-danger">Disable</a>
+            </td>
+            <td>
+                <form th:action="@{/user/limit}" method="post">
+                    <input type="hidden" name="username" th:value="${user.username}"/>
+                    <input type="hidden"  name="userLimitId" th:value="${user.userLimit.userLimitId}">
+
+                    <input type="number" name="dailyLimit" th:value="${user.userLimit.dailyLimit}">
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Change Daily Limit</button>
+                </form>
+            </td>
+        </tr>
+<!--        </th:block>-->
+        </table>
+    </div>
+</div>
+
+
+<div th:replace="common/header :: body-bottom-scripts"/>
+</body>
+</html>

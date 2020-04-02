@@ -3,11 +3,9 @@
 <head th:replace="common/header :: common-header"/>
 <body>
 <!-- Login Section -->
-<!--    <img class="img-responsive" src="/images/banner.png" alt="banner"/>-->
     <div class="container">
-        <div class="row ">
+        <div class="row" style="text-align: center" >
             <div class="main-center ">
-<!--              !@!@  param where it is?-->
                 <div class="bg-danger" th:if="${param.error}">
                     Invalid username and secret.
                 </div>
@@ -41,12 +39,24 @@
                 </div>
             </div>
 
-            <br>
+
             <hr/>
-            <h2>Technology used</h2>
-            <h3>Spring Boot, Spring Data JPA, Spring Security, Maven, Hibernate, slf4j</h3>
-            <h3>Thymeleaf, Jquery, Bootstrap</h3>
-            <h3>MySql</h3>
+            <h3>Technology used</h3>
+            <h4>Spring Boot, Spring Data JPA, Spring Security</h4>
+            <h4>Maven, Hibernate, slf4j</h4>
+            <h4>Thymeleaf, Jquery, Bootstrap</h4>
+            <h4>MySql</h4>
+            <hr/>
+            <h3>Main features</h3>
+            <h5>Create user account in secure way</h5>
+            <h5>Ability to change client info</h5>
+            <h5>Ability to deposit/withdraw moneys from client account</h5>
+            <h5>Ability of client to transfer money from own account to account of another client</h5>
+            <h5>Ability to schedule an appointment</h5>
+            <h5>Balance can't be negative for the client account</h5>
+            <h5>Ability for admin change <b>daily limits, enable/disable users</b></h5>
+            <h5>Scheduled tasks (ability to increase money on saving accounts in particular time)</h5>
+            <br>
         </div>
     </div>
 

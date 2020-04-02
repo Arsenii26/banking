@@ -12,6 +12,7 @@ import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+// for the angular possibility
 @Component // register bean
 @Order(Ordered.HIGHEST_PRECEDENCE) // this filter in front of other filters will be when loaded
 public class RequestFilter implements Filter {

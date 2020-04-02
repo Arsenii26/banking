@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.userfront</groupId>
     <artifactId>userfront</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.1-SNAPSHOT</version>
     <name>userfront</name>
     <description>User Front for online banking project</description>
 

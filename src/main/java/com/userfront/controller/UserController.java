@@ -1,11 +1,8 @@
 package com.userfront.controller;
 
 import java.security.Principal;
-import java.util.ArrayList;
 import java.util.List;
 
-import com.userfront.Dao.UserDao;
-import com.userfront.domain.Appointment;
 import com.userfront.domain.to.UserLimit;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;

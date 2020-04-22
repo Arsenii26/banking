@@ -4,9 +4,9 @@ import java.math.BigDecimal;
 import java.security.Principal;
 import java.util.*;
 
-import com.userfront.Dao.PrimaryAccountDao;
-import com.userfront.Dao.SavingsAccountDao;
-import com.userfront.Dao.UserLimitDao;
+import com.userfront.dao.PrimaryAccountDao;
+import com.userfront.dao.SavingsAccountDao;
+import com.userfront.dao.UserLimitDao;
 import com.userfront.domain.to.UserLimit;
 import com.userfront.exceptions.NegativeBalanceException;
 import com.userfront.exceptions.OverlimitException;
@@ -163,8 +163,9 @@ public class AccountServiceImpl implements AccountService {
     /**
      * Will increase money by 5% every N time for all savings accounts
      */
+    // https://stackoverflow.com/questions/30887822/spring-cron-vs-normal-cron
 //    @Scheduled(fixedRate=20000) //every 20 sec
-//    @Scheduled(cron="* * * * * *")
+    @Scheduled(cron="0 */5 * * * *") // every 5 min
     public void increaseMoney() {
         //https://stackoverflow.com/questions/49710713/how-to-set-a-method-in-spring-boot-to-execute-at-specific-date
 
@@ -181,6 +182,7 @@ public class AccountServiceImpl implements AccountService {
     }
 
     //    @Scheduled(fixedRate=60000)  //every min
+        @Scheduled(fixedRate=420000)  //every 7 min
     public void resetDailyLimit() {
         Iterable<UserLimit> allUserLimits = userLimitDao.findAll();
 

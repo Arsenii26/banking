@@ -2,7 +2,7 @@ package com.userfront.service.UserServiceImpl;
 
 import java.util.List;
 
-import com.userfront.Dao.AppointmentDao;
+import com.userfront.dao.AppointmentDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

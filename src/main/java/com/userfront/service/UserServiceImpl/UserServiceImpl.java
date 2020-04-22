@@ -1,9 +1,8 @@
 package com.userfront.service.UserServiceImpl;
 
-import com.userfront.Dao.RoleDao;
-import com.userfront.Dao.UserDao;
-import com.userfront.Dao.UserLimitDao;
-import com.userfront.domain.PrimaryAccount;
+import com.userfront.dao.RoleDao;
+import com.userfront.dao.UserDao;
+import com.userfront.dao.UserLimitDao;
 import com.userfront.domain.User;
 import com.userfront.domain.security.UserRole;
 
@@ -17,7 +16,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.Set;
 
@@ -137,7 +135,6 @@ public class UserServiceImpl implements UserService {
         return userLimitDao.save(userLimit);
     }
 
-    //NEXT ALL METHODS IN REST SERVICE
     public List<User> findUserList() {
         return userDao.findAll();
     }

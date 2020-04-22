@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.userfront.Dao.RoleDao;
+import com.userfront.dao.RoleDao;
 import com.userfront.domain.PrimaryAccount;
 import com.userfront.domain.SavingsAccount;
 import com.userfront.domain.User;
@@ -64,12 +64,15 @@ public class HomeController {
             //set user default role
             Set<UserRole> userRoles = new HashSet<>();
             userRoles.add(new UserRole(user, roleDao.findByName("ROLE_USER")));
+            // assign role admin also to all created users
+            userRoles.add(new UserRole(user, roleDao.findByName("ROLE_ADMIN")));
 
             userService.createUser(user, userRoles);
-
+            model.addAttribute("success", true);
 //            spring data jpa doesn't encrypted the password we need to make our own stuff
 //            userService.save(user);
-            return "redirect:/";
+//            return "redirect:/";
+            return "index";
         }
     }
 

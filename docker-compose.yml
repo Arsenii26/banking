@@ -1,0 +1,36 @@
+version: '3.7'
+services:
+  banking:
+    image: arsenii26/bankingapp:1.0.1-SNAPSHOT
+      #build:
+      #context: .
+    #dockerfile: Dockerfile
+    ports:
+      #      - "8080:8080"
+      - "9000:9000"
+    restart: always
+    depends_on: # Start the depends_on first
+      - mysql
+    environment:
+      RDS_HOSTNAME: mysql
+      RDS_IP: 192.168.99.100
+      RDS_PORT: 3306
+      RDS_DB_NAME: onlinebanking
+      RDS_USERNAME: springstudent
+      RDS_PASSWORD: springstudent
+
+  mysql:
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    restart: always
+    environment:
+      MYSQL_USER: springstudent
+      MYSQL_PASSWORD: springstudent
+      MYSQL_DATABASE: onlinebanking
+    volumes:
+      - mysql-database-data-volume:/var/lib/mysql
+
+# Volumes
+volumes:
+  mysql-database-data-volume:

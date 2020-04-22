@@ -19,9 +19,12 @@ public class Role {
     private Set<UserRole> userRoles = new HashSet<>();
 
     public Role() {
-
     }
 
+    public Role(int roleId, String name) {
+        this.roleId = roleId;
+        this.name = name;
+    }
     public int getRoleId() {
         return roleId;
     }

@@ -1,0 +1,113 @@
+-- DON'T NEED DB CREATED BY HIBERNATE + JPA
+-- use onlinebanking;
+--
+-- CREATE TABLE role (
+-- role_id int NOT NULL AUTO_INCREMENT,
+-- name varchar(255) NOT NULL,
+-- PRIMARY KEY (role_id)
+-- );
+--
+-- CREATE TABLE primary_account(
+-- account_number int NOT NULL AUTO_INCREMENT,
+-- account_balance int NOT NULL,
+-- PRIMARY KEY (account_number)
+-- );
+--
+-- CREATE TABLE saving_account(
+-- account_number int NOT NULL AUTO_INCREMENT,
+-- account_balance int NOT NULL,
+-- PRIMARY KEY (account_number)
+-- );
+--
+-- CREATE TABLE user_limit (
+-- limit_id int NOT NULL AUTO_INCREMENT,
+-- daily_limit int NOT NULL,
+-- daily_withdraw_made int NOT NULL,
+-- PRIMARY KEY (limit_id)
+-- )
+--
+-- CREATE TABLE user (
+-- user_id int NOT NULL AUTO_INCREMENT,
+-- username varchar(255) NOT NULL,
+-- password varchar(255) NOT NULL,
+-- first_name varchar(255) NOT NULL,
+-- last_name varchar(255) NOT NULL,
+-- email varchar(255) NOT NULL,
+-- phone int NOT NULL,
+-- enabled boolean default true,
+-- primary_account_account_number int NOT NULL,
+-- saving_account_account_number int NOT NULL,
+--     user_limit_limit_id int NOT NULL,
+--   PRIMARY KEY (user_id),
+--   CONSTRAINT `FK_USER_PRIM_ACC` FOREIGN KEY (`primary_account_account_number`)
+--             REFERENCES `primary_account` (`account_number`)
+--             ON DELETE NO ACTION ON UPDATE NO ACTION,
+--   CONSTRAINT `FK_USER_SAVIN_ACC` FOREIGN KEY (`saving_account_account_number`)
+--             REFERENCES `saving_account` (`account_number`)
+--             ON DELETE NO ACTION ON UPDATE NO ACTION,
+--   CONSTRAINT `FK_USER_LIMIT` FOREIGN KEY (`user_limit_limit_id`)
+--             REFERENCES `user_limit` (`limit_id`)
+--             ON DELETE NO ACTION ON UPDATE NO ACTION
+-- )
+--
+-- CREATE TABLE appointment (
+-- id int NOT NULL AUTO_INCREMENT,
+-- confirmed boolean default true,
+-- date DATE NOT NULL,
+-- description varchar(255) NOT NULL,
+-- location varchar(255) NOT NULL,
+-- user_id int NOT NULL,
+-- PRIMARY KEY (id),
+-- CONSTRAINT `FK_APPOINTM_USER` FOREIGN KEY (`id`)
+--             REFERENCES `user` (`user_id`)
+--             ON DELETE NO ACTION ON UPDATE NO ACTION
+-- )
+--
+-- CREATE TABLE primary_transaction (
+-- id int NOT NULL AUTO_INCREMENT,
+-- amount int NOT NULL,
+-- available_balance int NOT NULL,
+-- date DATE NOT NULL,
+-- description varchar(255) NOT NULL,
+-- status varchar(255) NOT NULL,
+-- type varchar(255) NOT NULL,
+-- primary_account_id int NOT NULL,
+-- PRIMARY KEY (id),
+-- CONSTRAINT `FK_PRIM_TRANS_PRIM_ACC` FOREIGN KEY (`id`)
+--             REFERENCES `primary_account` (`account_number`)
+--             ON DELETE NO ACTION ON UPDATE NO ACTION
+-- )
+--
+-- CREATE TABLE saving_transaction (
+-- id int NOT NULL AUTO_INCREMENT,
+-- amount int NOT NULL,
+-- available_balance int NOT NULL,
+-- date DATE NOT NULL,
+-- description varchar(255) NOT NULL,
+-- status varchar(255) NOT NULL,
+-- type varchar(255) NOT NULL,
+-- saving_account_id int NOT NULL,
+-- PRIMARY KEY (id),
+-- CONSTRAINT `FK_SAVIN_TRANS_SAVIN_ACC` FOREIGN KEY (`id`)
+--             REFERENCES `saving_account` (`account_number`)
+--             ON DELETE NO ACTION ON UPDATE NO ACTION
+-- )
+--
+-- CREATE TABLE recipient (
+-- id int NOT NULL AUTO_INCREMENT,
+-- available_number int NOT NULL,
+-- description varchar(255) NOT NULL,
+-- email varchar(255) NOT NULL,
+-- name varchar(255) NOT NULL,
+-- phone int NOT NULL,
+-- user_id int NOT NULL,
+-- PRIMARY KEY (id),
+-- CONSTRAINT `FK_RECIPIENT_USER` FOREIGN KEY (`id`)
+--             REFERENCES `user` (`user_id`)
+--             ON DELETE NO ACTION ON UPDATE NO ACTION
+-- )
+--
+-- INSERT INTO role (name)
+-- VALUES
+-- ('ROLE_USER'),('ROLE_ADMIN');
+--

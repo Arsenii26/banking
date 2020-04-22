@@ -12,6 +12,9 @@
                 <div class="bg-danger" th:if="${param.logout}">
                     You have been logged out.
                 </div>
+                <div class="bg-success" th:if="${success}">
+                    Successful!
+                </div>
                 <form class="form-signin" th:action="@{/index}" method="post">
                     <h2 class="form-signin-heading">Please sign in</h2>
                     <div class="form-group">

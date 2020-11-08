@@ -17,3 +17,6 @@ spec:
     targetPort: 9000
   selector:
     io.kompose.service: banking
+
+
+#    loadBalancerIP: 104.198.178.116

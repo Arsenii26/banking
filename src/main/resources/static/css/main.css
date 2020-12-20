@@ -4,7 +4,8 @@ body {
 
 html {
 	/*background: url("/images/back4.png") no-repeat center center fixed;*/
-	background: url("/images/bg.png") no-repeat center center fixed;
+	background: rgb(2,0,36);
+	background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(149,236,154,1) 0%, rgba(180,242,184,1) 70%, rgba(186,251,184,1) 100%, rgba(216,234,240,1) 100%);
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -174,9 +175,11 @@ html {
 	width: 100%;
 	overflow: hidden;
 	background: #FFF;
-	color: #024457;
+	color: #553957;
 	border-radius: 10px;
 	border: 1px solid #167F92;
+	text-align: center;
+	align-content: center;
 }
 
 .responstable tr {
@@ -190,48 +193,53 @@ html {
 .responstable th {
 	display: none;
 	border: 1px solid #FFF;
-	background-color: #167F92;
+	background-color: #92458e;
 	color: #FFF;
 	padding: 1em;
-}
-
-.responstable th:first-child {
-	display: table-cell;
 	text-align: center;
+	align-content: center;
 }
 
-.responstable th:nth-child(2) {
-	display: table-cell;
-}
+/*.responstable th:first-child {*/
+/*	display: table-cell;*/
+/*	text-align: center;*/
+/*}*/
 
-.responstable th:nth-child(2) span {
-	display: none;
-}
+/*.responstable th:nth-child(2) {*/
+/*	display: table-cell;*/
+/*	text-align: center;*/
+/*}*/
 
-.responstable th:nth-child(2):after {
-	content: attr(data-th);
-}
+/*.responstable th:nth-child(2) span {*/
+/*	display: none;*/
+/*}*/
 
-@media ( min-width : 480px) {
-	.responstable th:nth-child(2) span {
-		display: block;
-	}
-	.responstable th:nth-child(2):after {
-		display: none;
-	}
-}
+/*.responstable th:nth-child(2):after {*/
+/*	content: attr(data-th);*/
+/*}*/
+
+/*@media ( min-width : 480px) {*/
+/*	.responstable th:nth-child(2) span {*/
+/*		display: block;*/
+/*	}*/
+/*	.responstable th:nth-child(2):after {*/
+/*		display: none;*/
+/*	}*/
+/*}*/
 
 .responstable td {
 	display: block;
 	word-wrap: break-word;
 	max-width: 7em;
+	text-align: center;
+	align-content: center;
 }
 
-.responstable td:first-child {
-	display: table-cell;
-	text-align: center;
-	border-right: 1px solid #D9E4E6;
-}
+/*.responstable td:first-child {*/
+/*	display: table-cell;*/
+/*	text-align: center;*/
+/*	border-right: 1px solid #D9E4E6;*/
+/*}*/
 
 @media ( min-width : 480px) {
 	.responstable td {

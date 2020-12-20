@@ -64,8 +64,10 @@ public class HomeController {
             //set user default role
             Set<UserRole> userRoles = new HashSet<>();
             userRoles.add(new UserRole(user, roleDao.findByName("ROLE_USER")));
-            // assign role admin also to all created users
-            userRoles.add(new UserRole(user, roleDao.findByName("ROLE_ADMIN")));
+            // assign role admin also to all created users (only for username: admin)
+            if(user.getUsername().equals("admin")) {
+                userRoles.add(new UserRole(user, roleDao.findByName("ROLE_ADMIN")));
+            }
 
             userService.createUser(user, userRoles);
             model.addAttribute("success", true);

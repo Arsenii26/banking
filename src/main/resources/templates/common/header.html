@@ -81,8 +81,15 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a class="navbar-brand page-scroll" th:href="@{/user/all}" sec:authorize="hasRole('ROLE_ADMIN')">Get all users</a>
+
+
+                <li class="dropdown" sec:authorize="hasRole('ROLE_ADMIN')">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Only admin <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a th:href="@{/user/all}" sec:authorize="hasRole('ROLE_ADMIN')">Get all users</a>
+                        </li>
+                    </ul>
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Me <span class="caret"></span></a>

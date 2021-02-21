@@ -57,7 +57,7 @@ spec:
             configMapKeyRef:
               key: RDS_USERNAME
               name: bank-config
-        image: arsenii26/bankingapp:1.0.2-SNAPSHOT
+        image: arsenii26/bankingapp:1.0.3-SNAPSHOT
         imagePullPolicy: ""
         name: banking
         ports:
